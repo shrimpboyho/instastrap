@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+
+<head> 
+	<title>Instastrap</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+</head>
+
 <body>
 
 <h1>Success</h1>
@@ -9,11 +15,18 @@
 </body>
 
 <script>
-if(window.location.hash) {
-  console.log(window.location.hash)
+
+	if(window.location.hash) {
+		var tokhash = location.hash.substr(1),
+    mytoken = tokhash.substr(tokhash.indexOf('access_token='))
+                  .split('=')[1];
+		
+	console.log(tokhash);
+	$.post( "/sendtoken", { token: tokhash } );
 } else {
   alert("Instagram API didn't send us a hash.");
 }
+
 </script>
 </html>
 
