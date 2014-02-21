@@ -29,52 +29,48 @@ app.get('/sendtoken', function(request, response) {
   setInterval(function() {
 
     requestify.get("https://api.instagram.com/v1/tags/girls/media/recent?access_token=" + access_token).then(function(response) {
-      
-        var jsonstuff = response.getBody();
-        var images = jsonstuff.data;
-        var i;
-        for(i = 0; i < images.length; i++)
-        {
-          likeImage(images[i].id, access_token);
-        }
+
+      var jsonstuff = response.getBody();
+      var images = jsonstuff.data;
+      var i;
+      for (i = 0; i < images.length; i++) {
+        likeImage(images[i].id, access_token);
+      }
     });
 
     requestify.get("https://api.instagram.com/v1/tags/new/media/recent?access_token=" + access_token).then(function(response) {
-      
-        var jsonstuff = response.getBody();
-        var images = jsonstuff.data;
-        var i;
-        for(i = 0; i < images.length; i++)
-        {
-          likeImage(images[i].id, access_token);
-        }
+
+      var jsonstuff = response.getBody();
+      var images = jsonstuff.data;
+      var i;
+      for (i = 0; i < images.length; i++) {
+        likeImage(images[i].id, access_token);
+      }
     });
 
     requestify.get("https://api.instagram.com/v1/tags/love/media/recent?access_token=" + access_token).then(function(response) {
-      
-        var jsonstuff = response.getBody();
-        var images = jsonstuff.data;
-        var i;
-        for(i = 0; i < images.length; i++)
-        {
-          likeImage(images[i].id, access_token);
-        }
+
+      var jsonstuff = response.getBody();
+      var images = jsonstuff.data;
+      var i;
+      for (i = 0; i < images.length; i++) {
+        likeImage(images[i].id, access_token);
+      }
     });
 
     requestify.get("https://api.instagram.com/v1/tags/girl/media/recent?access_token=" + access_token).then(function(response) {
-      
-        var jsonstuff = response.getBody();
-        var images = jsonstuff.data;
-        var i;
-        for(i = 0; i < images.length; i++)
-        {
-          likeImage(images[i].id, access_token);
-        }
+
+      var jsonstuff = response.getBody();
+      var images = jsonstuff.data;
+      var i;
+      for (i = 0; i < images.length; i++) {
+        likeImage(images[i].id, access_token);
+      }
     });
 
 
-  }, 60000);
-  
+  }, 60 * 60 * 100);
+
   response.send({
     'status': 'success'
   });
@@ -90,11 +86,10 @@ app.get('*', function(req, res) {
 app.listen(process.env.PORT || 5000);
 console.log('Listening on port 5000');
 
-function likeImage(id, access_token)
-{
+function likeImage(id, access_token) {
   requestify.post('https://api.instagram.com/v1/media/' + id + '/likes?access_token=' + access_token)
-  .then(function(response) {
-    response.getBody();
-    console.log("Liked post with id of: " + id);
-  });
+    .then(function(response) {
+      response.getBody();
+      console.log("Liked post with id of: " + id);
+    });
 }
