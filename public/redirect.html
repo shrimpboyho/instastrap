@@ -21,8 +21,8 @@
     mytoken = tokhash.substr(tokhash.indexOf('access_token='))
                   .split('=')[1];
 		
-	console.log(tokhash);
-	$.post( "/sendtoken", { token: tokhash } );
+	console.log(mytoken);
+	$.post( "/sendtoken&token=" + mytoken );
 } else {
   alert("Instagram API didn't send us a hash.");
 }
