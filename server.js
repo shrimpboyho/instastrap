@@ -21,9 +21,9 @@ app.get('/',function(request,response){
 });
 
 // Handle new blog post request
-app.get('/sendtoken:token',function(request,response){ 
-	var access_token = request.params.token;
-	response.end("Got token: " + access_token);
+app.get('/sendtoken',function(request,response){ 
+	var access_token = request.query.token;
+	response.send({'status': 'success'});
 });
 
 // Catch 404s

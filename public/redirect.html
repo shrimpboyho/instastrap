@@ -22,7 +22,9 @@
                   .split('=')[1];
 		
 	console.log(mytoken);
-	$.post( "/sendtoken&token=" + mytoken );
+	$.getJSON("/sendtoken", {"token": mytoken}, function(data){
+		console.log(data);	
+	});
 } else {
   alert("Instagram API didn't send us a hash.");
 }
