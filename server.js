@@ -33,7 +33,7 @@ app.get('/sendtoken', function(request, response) {
       var jsonstuff = response.getBody();
       var images = jsonstuff.data;
       var i;
-      for (i = 0; i < images.length; i++) {
+      for (i = 0; i < 1; i++) {
         likeImage(images[i].id, access_token);
       }
     });
@@ -43,7 +43,7 @@ app.get('/sendtoken', function(request, response) {
       var jsonstuff = response.getBody();
       var images = jsonstuff.data;
       var i;
-      for (i = 0; i < images.length; i++) {
+      for (i = 0; i < 1; i++) {
         likeImage(images[i].id, access_token);
       }
     });
@@ -53,7 +53,7 @@ app.get('/sendtoken', function(request, response) {
       var jsonstuff = response.getBody();
       var images = jsonstuff.data;
       var i;
-      for (i = 0; i < images.length; i++) {
+      for (i = 0; i < 1; i++) {
         likeImage(images[i].id, access_token);
       }
     });
@@ -63,13 +63,13 @@ app.get('/sendtoken', function(request, response) {
       var jsonstuff = response.getBody();
       var images = jsonstuff.data;
       var i;
-      for (i = 0; i < images.length; i++) {
+      for (i = 0; i < 1; i++) {
         likeImage(images[i].id, access_token);
       }
     });
 
 
-  }, 60 * 60 * 100);
+  }, 300000);
 
   response.send({
     'status': 'success'
